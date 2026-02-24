@@ -1,57 +1,103 @@
-# Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
+# 🧱 Solidity Learning Repo
 
-This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
+A hands-on Solidity smart contract learning project built with **Hardhat v3** on macOS.
 
-To learn more about the Hardhat 3 Beta, please visit the [Getting Started guide](https://hardhat.org/docs/getting-started#getting-started-with-hardhat-3). To share your feedback, join our [Hardhat 3 Beta](https://hardhat.org/hardhat3-beta-telegram-group) Telegram group or [open an issue](https://github.com/NomicFoundation/hardhat/issues/new) in our GitHub issue tracker.
+---
 
-## Project Overview
+## 🛠 Tech Stack
 
-This example project includes:
+- **Solidity** `^0.8.28`
+- **Hardhat** `v3.x` (ESM mode)
+- **Hardhat Ignition** for deployments
+- **Node.js** `v22+`
 
-- A simple Hardhat configuration file.
-- Foundry-compatible Solidity unit tests.
-- TypeScript integration tests using `mocha` and ethers.js
-- Examples demonstrating how to connect to different types of networks, including locally simulating OP mainnet.
+---
 
-## Usage
+## 📁 Project Structure
 
-### Running Tests
-
-To run all the tests in the project, execute the following command:
-
-```shell
-npx hardhat test
+```
+solidity-learn/
+├── contracts/
+│   ├── 1_Bank.sol
+│   ├── 2_Voting.sol
+│   ├── 3_Lottery.sol
+│   └── 4_AsToken.sol
+├── ignition/
+│   └── modules/
+│       ├── Bank.ts
+│       ├── Voting.ts
+│       ├── Lottery.ts
+│       └── AsToken.ts
+├── hardhat.config.js
+└── package.json
 ```
 
-You can also selectively run the Solidity or `mocha` tests:
+---
 
-```shell
-npx hardhat test solidity
-npx hardhat test mocha
+## 🚀 Getting Started
+
+### 1. Install dependencies
+```bash
+npm install
 ```
 
-### Make a deployment to Sepolia
-
-This project includes an example Ignition module to deploy the contract. You can deploy this module to a locally simulated chain or to Sepolia.
-
-To run the deployment to a local chain:
-
-```shell
-npx hardhat ignition deploy ignition/modules/Counter.ts
+### 2. Compile contracts
+```bash
+npx hardhat compile
 ```
 
-To run the deployment to Sepolia, you need an account with funds to send the transaction. The provided Hardhat configuration includes a Configuration Variable called `SEPOLIA_PRIVATE_KEY`, which you can use to set the private key of the account you want to use.
-
-You can set the `SEPOLIA_PRIVATE_KEY` variable using the `hardhat-keystore` plugin or by setting it as an environment variable.
-
-To set the `SEPOLIA_PRIVATE_KEY` config variable using `hardhat-keystore`:
-
-```shell
-npx hardhat keystore set SEPOLIA_PRIVATE_KEY
+### 3. Deploy a contract
+```bash
+npx hardhat ignition deploy ignition/modules/Bank.ts
+npx hardhat ignition deploy ignition/modules/Voting.ts
+npx hardhat ignition deploy ignition/modules/Lottery.ts
+npx hardhat ignition deploy ignition/modules/AsToken.ts
 ```
 
-After setting the variable, you can run the deployment with the Sepolia network:
+---
 
-```shell
-npx hardhat ignition deploy --network sepolia ignition/modules/Counter.ts
-```
+## 📜 Contracts
+
+### 🐷 Bank
+Deposit ETH into a contract. Only the owner can withdraw.
+
+**Concepts:** `payable`, `msg.sender`, `msg.value`, `require`
+
+---
+
+### 🗳️ Voting
+Deploy with a list of candidates. Each address can vote once. Get the winner.
+
+**Concepts:** `structs`, `mappings`, `arrays`, `constructor arguments`
+
+---
+
+### 🎰 Lottery
+Players pay 0.01 ETH to enter. Owner picks a random winner who gets the pot.
+
+**Concepts:** `events`, `randomness`, `address arrays`, `ether transfers`
+
+---
+
+### 🪙 MyToken
+A simple ERC-20-style token. Mint on deploy, transfer between addresses.
+
+**Concepts:** `events`, `mappings`, `token standards`
+
+---
+
+## ⚙️ Setup Notes
+
+- This project uses **ESM** (`"type": "module"` in `package.json`)
+- Use `import` not `require` in all scripts
+- Hardhat v3 uses **Ignition** for deployments — no `scripts/deploy.js` needed
+- Always run Hardhat commands from the **project root**, not inside `contracts/`
+
+---
+
+## 📚 Learning Resources
+
+- [Solidity by Example](https://solidity-by-example.org)
+- [CryptoZombies](https://cryptozombies.io)
+- [Hardhat Docs](https://hardhat.org/docs)
+- [Ethereum Docs](https://ethereum.org/en/developers/docs)
