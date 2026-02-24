@@ -1,10 +1,10 @@
-# 🧱 Solidity Learning Repo
+# Solidity Learning Repo
 
 A hands-on Solidity smart contract learning project built with **Hardhat v3** on macOS.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Solidity** `^0.8.28`
 - **Hardhat** `v3.x` (ESM mode)
@@ -13,7 +13,7 @@ A hands-on Solidity smart contract learning project built with **Hardhat v3** on
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 solidity-learn/
@@ -34,7 +34,7 @@ solidity-learn/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Install dependencies
 ```bash
@@ -56,37 +56,37 @@ npx hardhat ignition deploy ignition/modules/AsToken.ts
 
 ---
 
-## 📜 Contracts
+## Contracts
 
-### 🐷 Bank
+### Bank
 Deposit ETH into a contract. Only the owner can withdraw.
 
 **Concepts:** `payable`, `msg.sender`, `msg.value`, `require`
 
 ---
 
-### 🗳️ Voting
+### Voting
 Deploy with a list of candidates. Each address can vote once. Get the winner.
 
 **Concepts:** `structs`, `mappings`, `arrays`, `constructor arguments`
 
 ---
 
-### 🎰 Lottery
+### Lottery
 Players pay 0.01 ETH to enter. Owner picks a random winner who gets the pot.
 
 **Concepts:** `events`, `randomness`, `address arrays`, `ether transfers`
 
 ---
 
-### 🪙 MyToken
+### MyToken
 A simple ERC-20-style token. Mint on deploy, transfer between addresses.
 
 **Concepts:** `events`, `mappings`, `token standards`
 
 ---
 
-## ⚙️ Setup Notes
+## Setup Notes
 
 - This project uses **ESM** (`"type": "module"` in `package.json`)
 - Use `import` not `require` in all scripts
@@ -95,7 +95,7 @@ A simple ERC-20-style token. Mint on deploy, transfer between addresses.
 
 ---
 
-## 📚 Learning Resources
+## Learning Resources
 
 - [Solidity by Example](https://solidity-by-example.org)
 - [CryptoZombies](https://cryptozombies.io)
